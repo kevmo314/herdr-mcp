@@ -1,0 +1,40 @@
+{
+  "name": "herdr-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Herdr: drive herdr-core terminals, agents, remote machines and the Herdr window from any MCP client",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kevin Wang <kevmo314@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevmo314/herdr-mcp.git"
+  },
+  "homepage": "https://github.com/kevmo314/herdr-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/kevmo314/herdr-mcp/issues"
+  },
+  "keywords": ["mcp", "model-context-protocol", "herdr", "hc", "terminal", "agents"],
+  "bin": {
+    "herdr-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && node test/smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
